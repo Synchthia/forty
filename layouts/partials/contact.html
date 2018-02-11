@@ -1,8 +1,10 @@
 {{ "<!-- Contact -->" | safeHTML}}
     <section id="contact">
         <div class="inner">
+            {{ if .Site.Params.Contact.form }}
             <section>
-                <form method="post" action="https://formspree.io/{{ .Site.Params.Contact.formEmail }}">
+                {{ range .Site.Params.Contact.form }}
+                <form method="post" action="https://formspree.io/{{ .Site.Params.Contact.form.formEmail }}">
                     <div class="field half first">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" />
@@ -16,12 +18,15 @@
                         <textarea name="message" id="message" rows="6"></textarea>
                     </div>
                     <ul class="actions">
-                        <li><input type="submit" value="{{ .Site.Params.Contact.buttonSend }}" class="special" /></li>
-                        <li><input type="reset" value="{{ .Site.Params.Contact.buttonClear }}" /></li>
+                        <li><input type="submit" value="{{ .buttonSend }}" class="special" /></li>
+                        <li><input type="reset" value="{{ .buttonClear }}" /></li>
                     </ul>
                 </form>
+                {{ end }}
             </section>
+            {{ end }}
             <section class="split">
+                {{ if .Site.Params.Contact.email }}
                 <section>
                     <div class="contact-method">
                         <span class="icon alt fa-envelope"></span>
@@ -31,6 +36,8 @@
                         {{ end }}
                     </div>
                 </section>
+                {{ end }}
+                {{ if .Site.Params.Contact.phone }}
                 <section>
                     <div class="contact-method">
                         <span class="icon alt fa-phone"></span>
@@ -40,6 +47,8 @@
                         {{ end }}
                     </div>
                 </section>
+                {{ end }}
+                {{ if .Site.Params.Contact.address }}
                 <section>
                     <div class="contact-method">
                         <span class="icon alt fa-home"></span>
@@ -51,6 +60,7 @@
                         {{ end }}
                     </div>
                 </section>
+                {{ end }}
             </section>
         </div>
     </section>
