@@ -25,6 +25,18 @@
                 {{ end }}
             </section>
             {{ end }}
+
+            {{ if .Site.Params.Contact.discord }}
+            <section>
+                <div class="contact-method">
+                    <span class="icon alt fa-discord"></span>
+                    {{ range .Site.Params.Contact.discord }}
+                    <h3>{{ .title }}</h3>
+                    <iframe src="https://discordapp.com/widget?id={{ .serverId }}&theme={{ .theme }}" width="{{ .width }}" height="{{ .height }}" allowtransparency="true" frameborder="0"></iframe>
+                    {{ end }}
+                </div>
+            </section>
+            {{ end }}
             <section class="split">
                 {{ if .Site.Params.Contact.email }}
                 <section>
