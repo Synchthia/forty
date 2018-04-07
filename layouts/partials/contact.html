@@ -32,7 +32,7 @@
                     <span class="icon alt fa-discord"></span>
                     {{ range .Site.Params.Contact.discord }}
                     <h3>{{ .title }}</h3>
-                    <iframe src="https://discordapp.com/widget?id={{ .serverId }}&theme={{ .theme }}" width="{{ .width }}" height="{{ .height }}" allowtransparency="true" frameborder="0"></iframe>
+                    <iframe src="https://discordapp.com/widget?id={{ .serverId }}&amp;theme={{ .theme }}" width="{{ .width }}" height="{{ .height }}" allowtransparency="true" frameborder="0"></iframe>
                     {{ end }}
                 </div>
             </section>
